@@ -1,4 +1,4 @@
-
+from time import sleep
 from random import choice
 sorteio = ['pedra', 'papel', 'tesoura']
 bot = choice(sorteio)
@@ -33,6 +33,13 @@ while True:
                     f'Pedra\n'
                     f'Papel\n'
                     f'Tesoura\n').lower()
+    sleep(1)
+    print(f'{cores["roxo"]}JO')
+    sleep(1)
+    print(f'KEN')
+    sleep(1)
+    print(f'PÔ{cores["limpar"]}')
+    sleep(1)
     corte()
     if jogador == bot:
         print(f'{cores["amarelo"]}Empate!{cores["limpar"]}')
