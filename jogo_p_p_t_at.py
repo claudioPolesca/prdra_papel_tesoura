@@ -11,6 +11,11 @@ def corte():
     print(f'{cores["limpar"]}-=-'*10)
 
 
+def Empate(j, b):
+    if f'{j}' == f'{b}':
+        print(f'{cores["amarelo"]}Empate!{cores["limpar"]}')
+
+
 def Pedra(j, b):
     if f'{j}' == 'pedra' and f'{b}' == 'tesoura':
         vitoria_jogador()
@@ -54,22 +59,14 @@ while True:
                     f'Pedra\n'
                     f'Papel\n'
                     f'Tesoura\n').lower()
-    sleep(1)
-    print(f'{cores["roxo"]}JO')
-    sleep(1)
-    print(f'KEN')
-    sleep(1)
-    print(f'PÔ{cores["limpar"]}')
-    sleep(1)
+    if jogador == 'fim':
+        break
+
     corte()
-    if jogador == bot:
-        print(f'{cores["amarelo"]}Empate!{cores["limpar"]}')
+    Empate(jogador, bot)
     Pedra(jogador, bot)
     Papel(jogador, bot)
     Tesoura(jogador, bot)
-
-    if jogador == 'fim':
-        break
     if jogador not in sorteio:
         print(
             f'{cores["vermelho"]}Favor tentar somente opções validas.{cores["limpar"]}')
