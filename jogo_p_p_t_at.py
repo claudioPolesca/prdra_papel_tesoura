@@ -11,11 +11,25 @@ def corte():
     print(f'{cores["limpar"]}-=-'*10)
 
 
-def Tesoura(jogador, bot):
-    if f'{jogador}' == 'tesoura' and f'{bot}' == 'papel':
+def Pedra(j, b):
+    if f'{j}' == 'pedra' and f'{b}' == 'tesoura':
         vitoria_jogador()
-    if f'{bot}' == 'tesoura' and f'{jogador}' == 'papel':
-        vitoria_bot
+    if f'{b}' == 'pedra' and f'{j}' == 'tesoura':
+        vitoria_bot()
+
+
+def Papel(j, b):
+    if f'{j}' == 'papel' and f'{b}' == 'pedra':
+        vitoria_jogador()
+    if f'{b}' == 'papel' and f'{j}' == 'pedra':
+        vitoria_bot()
+
+
+def Tesoura(j, b):
+    if f'{j}' == 'tesoura' and f'{b}' == 'papel':
+        vitoria_jogador()
+    if f'{b}' == 'tesoura' and f'{j}' == 'papel':
+        vitoria_bot()
 
 
 def vitoria_jogador():
@@ -50,18 +64,10 @@ while True:
     corte()
     if jogador == bot:
         print(f'{cores["amarelo"]}Empate!{cores["limpar"]}')
-    elif jogador == 'tesoura' and bot == 'papel':
-        vitoria_jogador()
-    elif jogador == 'papel' and bot == 'pedra':
-        vitoria_jogador()
-    elif jogador == 'pedra' and bot == 'tesoura':
-        vitoria_jogador()
-    elif bot == 'tesoura' and jogador == 'papel':
-        vitoria_bot()
-    elif bot == 'papel' and jogador == 'pedra':
-        vitoria_bot()
-    elif bot == 'pedra' and jogador == 'tesoura':
-        vitoria_bot()
+    Pedra(jogador, bot)
+    Papel(jogador, bot)
+    Tesoura(jogador, bot)
+
     if jogador == 'fim':
         break
     if jogador not in sorteio:
